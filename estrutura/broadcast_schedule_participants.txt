@@ -1,0 +1,4 @@
+Tabela: broadcast_schedule_participants
+id_broadcast_schedule_participants int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_broadcast_schedule int(11) NOT NULL FOREIGN KEY → broadcast_schedule(id_broadcast_schedule)
+participants longtext NOT NULL

@@ -1,0 +1,4 @@
+Tabela: faq_tag
+id_faq_tag int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_faq int(11) NOT NULL
+tag text NOT NULL

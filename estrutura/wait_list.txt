@@ -1,0 +1,12 @@
+Tabela: wait_list
+id_wait_list int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id varchar(200) NOT NULL
+id_user_group int(11) FOREIGN KEY → user_group(id_user_group)
+user_key_remote_id text
+timestamp_send_user int(11)
+status smallint(1) NOT NULL
+push_notification smallint(1) DEFAULT '1'
+account_key_remote_id varchar(200)
+type varchar(45)
+t int(11)

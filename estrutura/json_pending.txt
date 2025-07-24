@@ -1,0 +1,6 @@
+Tabela: json_pending
+id_json_pending int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id varchar(100)
+key_id varchar(100) NOT NULL
+json text NOT NULL

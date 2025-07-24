@@ -1,0 +1,34 @@
+Tabela: channel
+id_channel int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+name varchar(55)
+id_user_group int(11)
+id_work_time int(11) FOREIGN KEY → work_time(id_work_time)
+type smallint(1) NOT NULL
+id mediumtext NOT NULL
+pw mediumtext
+status smallint(1) NOT NULL DEFAULT '1'
+t int(11)
+quality smallint(2) DEFAULT '10'
+credit_template float DEFAULT '0'
+pricing_template float DEFAULT '0.05486'
+is_broadcast smallint(1) DEFAULT '2'
+button_text mediumtext
+button_color varchar(25)
+title mediumtext
+subtitle mediumtext
+pricing_template_br float
+position mediumtext
+credit_conversation float DEFAULT '0'
+business_initiated_price float
+user_initiated_price float
+referral_conversion_price float
+minimum_credit float DEFAULT '100'
+database_clear varchar(10)
+whatsapp_business_messaging mediumtext
+display_phone_number mediumtext
+consolidating int(11)
+consolidation_date int(11)
+payment_error text
+broadcast_send int(11)
+tv_connection_code int(6) unsigned
+integration_type smallint(6) DEFAULT '1'

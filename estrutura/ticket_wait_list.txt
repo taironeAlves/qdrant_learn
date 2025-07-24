@@ -1,0 +1,9 @@
+Tabela: ticket_wait_list
+id_ticket_wait_list int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_ticket int(11) NOT NULL FOREIGN KEY → ticket(id_ticket)
+creation int(11) NOT NULL
+key_remote_id text
+id_user_group int(11) FOREIGN KEY → user_group(id_user_group)
+user_key_remote_id text
+timestamp_send_user int(11)
+status smallint(1) NOT NULL DEFAULT '1'

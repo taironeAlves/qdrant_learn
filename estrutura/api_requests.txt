@@ -1,0 +1,5 @@
+Tabela: api_requests
+id_api_requests int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+token varchar(100) NOT NULL
+endpoint varchar(100)
+request_time timestamp NOT NULL DEFAULT 'CURRENT_TIMESTAMP'

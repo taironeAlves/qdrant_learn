@@ -1,0 +1,16 @@
+Tabela: short_link_log
+id_short_link_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_short_link int(11) NOT NULL FOREIGN KEY → short_link(id_short_link)
+creation int(11) NOT NULL
+country text NOT NULL
+region text NOT NULL
+city text NOT NULL
+agent text NOT NULL
+browser_version text NOT NULL
+is_mobile smallint(1) NOT NULL
+device_version text NOT NULL
+ip text NOT NULL
+hostname text NOT NULL
+timezone text NOT NULL
+org text NOT NULL
+is_facebook smallint(1)

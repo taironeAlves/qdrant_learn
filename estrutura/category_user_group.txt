@@ -1,0 +1,4 @@
+Tabela: category_user_group
+id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_category int(11) NOT NULL FOREIGN KEY → category(id_category)
+id_user_group int(11) NOT NULL

@@ -1,0 +1,6 @@
+Tabela: broadcast_approval
+id_approval int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+token_broadcast_schedule text NOT NULL
+submitted_by_user int(11) NOT NULL FOREIGN KEY → user(id_user)
+message text

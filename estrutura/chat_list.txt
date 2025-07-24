@@ -1,0 +1,35 @@
+Tabela: chat_list
+id_chat_list int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+id_contact int(11) NOT NULL
+key_remote_id varchar(100)
+last_conversation_id text
+creation int(11) NOT NULL
+is_chat smallint(1) NOT NULL DEFAULT '1'
+is_broadcast smallint(1) DEFAULT '1'
+is_group smallint(1) DEFAULT '1'
+is_private smallint(1) DEFAULT '1'
+is_wait smallint(1) DEFAULT '1'
+ignore smallint(1) DEFAULT '1'
+is_close smallint(1) DEFAULT '1'
+spam smallint(1) DEFAULT '1'
+deleted smallint(1) DEFAULT '1'
+user_notify_spam int(11)
+user_ignore text
+user_deleted int(11)
+short_timestamp int(11)
+message_no_read int(11) DEFAULT '0'
+last_message_table_id int(11)
+last_welcome_timestamp int(11)
+last_office_hours_end int(11)
+labels text
+last_attendence int(11)
+last_timestamp_client int(11)
+fixed_timestamp int(11)
+id_last_message_read int(11)
+id_last_message_send int(11)
+id_last_message_no_read int(11)
+id_message_no_read int(11)
+is_bot smallint(1) DEFAULT '2'
+hidden_msg smallint(1) DEFAULT '1'
+agent_timestamp int(11)

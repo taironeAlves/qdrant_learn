@@ -1,0 +1,16 @@
+Tabela: group_contact
+id_group_contact int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_id mediumtext
+gid mediumtext
+name varchar(55) NOT NULL
+tags mediumtext
+opt_in mediumtext
+participants longtext
+is_wa_group smallint(1) DEFAULT '2'
+url_wa_group mediumtext
+description mediumtext
+subject mediumtext
+send_message smallint(1) DEFAULT '2'
+id_channel int(11)
+profile mediumtext

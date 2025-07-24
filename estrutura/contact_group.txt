@@ -1,0 +1,5 @@
+Tabela: contact_group
+id_contact_group int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_group_contact int(11) NOT NULL
+id_contact int(11) NOT NULL
+creation int(11) NOT NULL

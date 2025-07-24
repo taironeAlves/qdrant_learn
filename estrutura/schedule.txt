@@ -1,0 +1,7 @@
+Tabela: schedule
+id_schedule int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+schedule int(11) NOT NULL
+title text NOT NULL
+text text NOT NULL
+status smallint(1) NOT NULL

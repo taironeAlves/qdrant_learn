@@ -1,0 +1,15 @@
+Tabela: chatbot
+id_chatbot int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_user_group int(11) FOREIGN KEY → user_group(id_user_group)
+text text
+option text NOT NULL
+description text NOT NULL
+id_submenu int(11)
+is_menu smallint(1) NOT NULL DEFAULT '2'
+is_primary smallint(1) DEFAULT '1'
+webhook text
+media_type smallint(1) DEFAULT '1'
+media_url text
+media_caption text
+vcard text
+is_end smallint(1) DEFAULT '2'

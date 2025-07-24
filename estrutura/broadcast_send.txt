@@ -1,0 +1,31 @@
+Tabela: broadcast_send
+id_broadcast_send int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_broadcast_schedule int(11)
+id_template int(11)
+creation int(11) NOT NULL
+schedule int(11) NOT NULL
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+token mediumtext NOT NULL
+key_id mediumtext
+key_remote_id mediumtext
+data mediumtext
+media_type smallint(1) NOT NULL
+media_caption mediumtext
+media_duration int(11)
+media_name mediumtext
+media_title mediumtext
+media_size int(11)
+media_url mediumtext
+longitude mediumtext
+latitude mediumtext
+thumb_image longblob
+status smallint(1) NOT NULL
+send_timestamp int(11)
+json_parameters text
+json_buttons text
+participantsList longtext
+send_count int(3) DEFAULT '0'
+receipt_count int(3) DEFAULT '0'
+read_count int(3) DEFAULT '0'
+reaction_count int(11) DEFAULT '0'
+is_group smallint(6) DEFAULT '2'

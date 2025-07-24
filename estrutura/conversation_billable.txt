@@ -1,0 +1,11 @@
+Tabela: conversation_billable
+id_conversation_billable int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11)
+key_remote_id varchar(100)
+conversation_id varchar(100) NOT NULL
+expiration_timestamp int(11)
+origin_type text
+model text
+billable tinyint(4)
+category text
+current_price float

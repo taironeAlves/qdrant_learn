@@ -1,0 +1,5 @@
+Tabela: channel_log
+id_channel_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id varchar(100) NOT NULL
+log text NOT NULL

@@ -1,0 +1,6 @@
+Tabela: ticket_sla
+id_ticket_sla int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+time_sla mediumtext NOT NULL
+color mediumtext NOT NULL

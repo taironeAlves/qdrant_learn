@@ -1,0 +1,9 @@
+Tabela: ticket_task_list
+id_ticket_task_list int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_ticket int(11) NOT NULL FOREIGN KEY → ticket(id_ticket)
+creation int(11) NOT NULL
+key_remote_id text NOT NULL
+timestamp_start int(11)
+timestamp_end int(11)
+timestamp_diff int(11)
+status smallint(1) NOT NULL

@@ -1,0 +1,3 @@
+Tabela: contact_optin
+id_contact_opt int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_contact int(11) NOT NULL FOREIGN KEY → contact(id_contact)

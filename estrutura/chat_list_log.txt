@@ -1,0 +1,11 @@
+Tabela: chat_list_log
+id_chat_list_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_chat_list int(11) NOT NULL FOREIGN KEY → chat_list(id_chat_list)
+creation int(11) NOT NULL
+key_remote_id varchar(100) NOT NULL
+start int(11) NOT NULL
+end int(11)
+protocol varchar(10)
+id_user_group int(11)
+start_mode varchar(100)
+id_category int(11) FOREIGN KEY → category(id_category)

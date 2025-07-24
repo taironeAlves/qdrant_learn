@@ -1,0 +1,11 @@
+Tabela: channel_location
+id_channel_location int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL DEFAULT '1' FOREIGN KEY → channel(id_channel)
+creation int(11) NOT NULL
+display_name text NOT NULL
+latitude text
+longitude text
+contact text
+status smallint(1) DEFAULT '1'
+cep varchar(10)
+is_search smallint(1) DEFAULT '2'

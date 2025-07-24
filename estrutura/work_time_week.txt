@@ -1,0 +1,6 @@
+Tabela: work_time_week
+id_work_time_week int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_work_time int(11) NOT NULL FOREIGN KEY → work_time(id_work_time)
+week smallint(1) NOT NULL
+start time NOT NULL
+end time NOT NULL

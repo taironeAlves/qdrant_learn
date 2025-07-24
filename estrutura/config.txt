@@ -1,0 +1,66 @@
+Tabela: config
+id_config int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL
+timezone text NOT NULL
+welcome text
+attendance_enable smallint(1) NOT NULL DEFAULT '2'
+office_hours_end text
+chatbot_enable smallint(1) NOT NULL DEFAULT '2'
+transfer_message text
+automatic_transfer smallint(1) NOT NULL DEFAULT '2'
+automatic_transfer_minute smallint(2) NOT NULL DEFAULT '1'
+attendant_name_enable tinyint(1) NOT NULL DEFAULT '0'
+ai_evaluation tinyint(1) NOT NULL DEFAULT '0'
+ai_options smallint(2)
+interval_broadcast smallint(2) DEFAULT '10'
+webhook text
+attendance_message_close text
+message_close_enabled smallint(1) DEFAULT '2'
+template_welcome text
+template_attendance_message_close text
+namespace text
+template_namespace text
+enable_protocol smallint(1) DEFAULT '2'
+message_start_attendance text
+enabled_lgpd_question smallint(1) DEFAULT '2'
+template_name_lgpd text
+lgpd_question_text text
+template_lgpd_question_no text
+lgpd_not_confirm_message text
+order_user_group int(11)
+id_order_status int(11)
+welcome_message text
+address text
+email text
+social_media text
+picture text
+company_description text
+is_broadcast smallint(1) DEFAULT '2'
+automatic_message text
+opt_out_message text
+return_to_channel_message text
+evaluate_question text
+evaluate_service text
+question_evaluate_service_no text
+question_evaluate_service_yes text
+template_wa_business_welcome varchar(255) DEFAULT 'Bem vindo ao canal de novidades ?'
+template_wa_business_description varchar(255)
+template_wa_business_term_link varchar(255)
+template_wa_business_term_accept_yes_reaction text
+template_wa_business_term_accept_no_reaction text
+template_wa_business_optin_term_accept_yes varchar(100) DEFAULT 'Finalize seu cadastro para receber novidades incríveis!'
+template_wa_business_optin_description varchar(255)
+template_wa_business_last_broadcast text
+template_wa_business_optin_term_accept_yes_media_url varchar(255)
+template_wa_business_optout varchar(1000) DEFAULT 'Caso deseje sair, envie #sair.'
+template_wa_business_optout_list_reason text
+template_wa_business_optout_list_selected_title varchar(255) DEFAULT 'Que pena! nós vamos encerrar seu cadastro.'
+template_wa_business_optout_list_selected_description varchar(255)
+template_wa_business_automatic_message_title varchar(255) DEFAULT '⚠️ Esse canal é para o envio de novidades. '
+template_wa_business_automatic_message_description varchar(255)
+template_wa_business_automatic_message_phone varchar(255) DEFAULT ''
+template_wa_business_contains_broadcast varchar(200) DEFAULT 'Temos ofertas disponíveis. Por favor, confirme se gravou nosso número na sua agenda para que, em breve, você receba nossas ofertas exclusivas!'
+template_wa_business_no_contains_broadcast varchar(200) DEFAULT 'Neste momento, não temos ofertas disponíveis. Por favor, confirme se gravou nosso número na sua agenda para que, em breve, você receba nossas ofertas exclusivas!'
+opt_out_key varchar(45)
+tv_settings varchar(300)
+pin varchar(6)

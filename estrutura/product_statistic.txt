@@ -1,0 +1,5 @@
+Tabela: product_statistic
+id_product_statistic int(11) NOT NULL PRIMARY KEY
+id_product int(11) NOT NULL FOREIGN KEY → product(id_product)
+creation int(11) NOT NULL
+key_remote_id text NOT NULL

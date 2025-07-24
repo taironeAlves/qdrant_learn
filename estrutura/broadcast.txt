@@ -1,0 +1,7 @@
+Tabela: broadcast
+id_broadcast int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+token text NOT NULL
+name text NOT NULL
+count smallint(3) NOT NULL
+participants text

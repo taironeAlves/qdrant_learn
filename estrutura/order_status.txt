@@ -1,0 +1,7 @@
+Tabela: order_status
+id_order_status int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+color text NOT NULL
+message text
+is_close smallint(1)

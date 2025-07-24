@@ -1,0 +1,14 @@
+Tabela: catalog
+id_catalog int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+id_catalog_category int(11) NOT NULL FOREIGN KEY → catalog_category(id_catalog_category)
+name text NOT NULL
+creation int(11) NOT NULL
+mon smallint(1) NOT NULL
+tue smallint(1) NOT NULL
+wed smallint(1) NOT NULL
+thu smallint(1) NOT NULL
+fri smallint(1) NOT NULL
+sat smallint(1) NOT NULL
+sun smallint(1) NOT NULL
+status smallint(1) NOT NULL

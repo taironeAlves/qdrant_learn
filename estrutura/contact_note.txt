@@ -1,0 +1,5 @@
+Tabela: contact_note
+id_contact_note int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_contact int(11) NOT NULL
+creation smallint(1) NOT NULL
+text text NOT NULL

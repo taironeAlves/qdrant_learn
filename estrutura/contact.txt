@@ -1,0 +1,33 @@
+Tabela: contact
+id_contact int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+id_channel int(11) FOREIGN KEY → channel(id_channel)
+id_last_menu_selected int(11)
+key_remote_id varchar(100) NOT NULL
+ta_id varchar(100)
+id_contact_tag int(11)
+user_key_remote_id mediumtext
+id_user_group int(11) FOREIGN KEY → user_group(id_user_group)
+full_name varchar(100)
+deleted smallint(1) NOT NULL DEFAULT '1'
+spam smallint(1) NOT NULL DEFAULT '1'
+sex smallint(1) DEFAULT '1'
+email varchar(55)
+note varchar(1024)
+verify smallint(1) DEFAULT '1'
+exist smallint(1) DEFAULT '2'
+is_private smallint(1) DEFAULT '1'
+is_group smallint(1)
+presence varchar(12)
+timestamp int(11)
+crm_profile varchar(512)
+crm_timestamp int(11)
+is_imported smallint(1) DEFAULT '1'
+broadcast_timestamp int(11)
+broadcast_create smallint(1) DEFAULT '1'
+json_cache text
+broadcast_receipt int(11)
+sort_id int(11)
+is_wa_community smallint(1) DEFAULT '2'
+accepted_lgpd smallint(6) DEFAULT '2'
+contact_order int(11)

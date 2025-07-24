@@ -1,0 +1,18 @@
+Tabela: template
+id_template int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name varchar(255)
+name_to_request varchar(255)
+namespace varchar(255)
+header_type smallint(1)
+header varchar(255)
+text_body text
+text_footer mediumtext
+language varchar(8) DEFAULT 'pt_BR'
+category varchar(100) DEFAULT 'ISSUE_RESOLUTION'
+rejected_reason mediumtext
+status int(11) DEFAULT '1'
+template_id mediumtext
+account_key_remote_id mediumtext
+buttons mediumtext
+template_json mediumtext

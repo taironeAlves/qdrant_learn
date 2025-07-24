@@ -1,0 +1,10 @@
+Tabela: broadcast_receipt
+id_broadcast_receipt int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+token varchar(32) NOT NULL
+key_id varchar(32) NOT NULL
+key_remote_id varchar(40) NOT NULL
+receipt_timestamp int(11)
+read_timestamp int(11)
+played_timestamp int(11)
+reaction_timestamp int(11)
+status smallint(2) NOT NULL

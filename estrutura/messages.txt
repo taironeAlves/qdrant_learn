@@ -1,0 +1,51 @@
+Tabela: messages
+id_message int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_chat_list int(11) NOT NULL FOREIGN KEY → chat_list(id_chat_list)
+creation int(11) NOT NULL
+key_id varchar(200) NOT NULL
+ta_key_id varchar(200)
+key_from_me smallint(1)
+key_remote_id varchar(100)
+need_push smallint(1)
+data text
+status smallint(1)
+media_type smallint(2)
+media_url varchar(320)
+media_mime_type text
+media_size int(11)
+media_name varchar(1026)
+media_caption text
+media_hash text
+media_duration int(11)
+latitude text
+longitude text
+thumb_image longblob
+send_timestamp int(11)
+receipt_server_timestamp int(11)
+read_device_timestamp int(11)
+played_device_timestamp int(11)
+quoted_row_id varchar(200)
+participant text
+file_name text
+title text
+page_count int(11) DEFAULT '0'
+forwarded tinyint(1) DEFAULT '0'
+name varchar(255)
+namespace varchar(255)
+language varchar(8)
+policy varchar(100)
+json_return text
+id_chat_bot smallint(11)
+starred smallint(1)
+components text
+deleted smallint(1) DEFAULT '1'
+media_key text
+component text
+visible smallint(1) DEFAULT '1'
+conversation_id text
+conversation_expiration_timestamp int(11)
+conversation_origin_type text
+pricing_model text
+pricing_billable tinyint(1)
+pricing_category text
+is_broadcast smallint(1) DEFAULT '0'

@@ -1,0 +1,22 @@
+Tabela: messages_order
+id_messages_order int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_order_status int(11) FOREIGN KEY → order_status(id_order_status)
+id_payment_method int(11) FOREIGN KEY → payment_methods(id_payment_method)
+creation int(11) NOT NULL
+token text NOT NULL
+order_id text NOT NULL
+seller_jid text NOT NULL
+key_id varchar(100) NOT NULL
+order_title text
+item_count int(11) NOT NULL
+message text
+subtotal text
+total text
+postal text
+address text
+number text
+district text
+city text
+complement text
+distance text
+distance_time text

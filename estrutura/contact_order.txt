@@ -1,0 +1,4 @@
+Tabela: contact_order
+id_contact_order int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_contact int(11) NOT NULL FOREIGN KEY → contact(id_contact)
+sort_id int(11)

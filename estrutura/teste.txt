@@ -1,0 +1,3 @@
+Tabela: teste
+idteste int(11) NOT NULL PRIMARY KEY
+nome varchar(45) NOT NULL

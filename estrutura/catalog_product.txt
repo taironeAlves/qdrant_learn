@@ -1,0 +1,5 @@
+Tabela: catalog_product
+id_catalog_product int(11) NOT NULL PRIMARY KEY
+id_product int(11) NOT NULL FOREIGN KEY → product(id_product)
+id_catalog int(11) NOT NULL FOREIGN KEY → catalog(id_catalog)
+creation int(11) NOT NULL

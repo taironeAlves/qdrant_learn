@@ -1,0 +1,4 @@
+Tabela: label
+id_label int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+name text NOT NULL
+color varchar(7) NOT NULL

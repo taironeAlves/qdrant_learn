@@ -1,0 +1,6 @@
+Tabela: contact_tag
+id_contact_tag int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11)
+id_tag int(11)
+id_contact varchar(100)
+id_label text

@@ -1,0 +1,7 @@
+Tabela: receipt_user
+id_broadcast_participant int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+key_id varchar(100) NOT NULL
+key_remote_id varchar(100) NOT NULL
+receipt_device_timestamp int(11)
+played_device_timestamp int(11)
+read_device_timestamp int(11)

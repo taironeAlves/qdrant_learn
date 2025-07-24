@@ -1,0 +1,5 @@
+Tabela: tamplate_params
+id_template_parameter int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+label varchar(100)
+number int(2)
+creation int(11)

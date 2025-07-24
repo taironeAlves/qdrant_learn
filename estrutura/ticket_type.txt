@@ -1,0 +1,10 @@
+Tabela: ticket_type
+id_ticket_type int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_user_group int(11) FOREIGN KEY → user_group(id_user_group)
+id_ticket_sla int(11) FOREIGN KEY → ticket_sla(id_ticket_sla)
+creation int(11) NOT NULL
+name mediumtext NOT NULL
+status smallint(1) NOT NULL DEFAULT '1'
+color mediumtext
+id_subtype int(11)
+is_primary int(11) DEFAULT '1'

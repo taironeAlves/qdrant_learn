@@ -1,0 +1,12 @@
+Tabela: quick_replies
+id_quick_replies int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation varchar(45) NOT NULL
+tag text NOT NULL
+key_remote_id mediumtext
+title mediumtext NOT NULL
+content text
+media_type smallint(6)
+media_url varchar(1024)
+media_size int(11)
+media_duration int(11)
+media_title varchar(100)

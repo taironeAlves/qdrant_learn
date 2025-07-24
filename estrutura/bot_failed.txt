@@ -1,0 +1,5 @@
+Tabela: bot_failed
+id_bot_failed int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_bot_question int(11) NOT NULL FOREIGN KEY → bot_question(id_bot_question)
+creation int(11) NOT NULL
+content text

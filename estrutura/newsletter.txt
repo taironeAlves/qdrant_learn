@@ -1,0 +1,11 @@
+Tabela: newsletter
+id_newsletter int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL
+creation int(11) NOT NULL
+key_remote_id text NOT NULL
+name text
+name_id text
+description text
+invite_code text
+subscribers_count int(11)
+status smallint(6)

@@ -1,0 +1,11 @@
+Tabela: template_type
+id_template_type int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+category varchar(120)
+pt_BR varchar(120)
+pt_PT varchar(120)
+es_AR varchar(120)
+es_ES varchar(120)
+es_MX varchar(120)
+es varchar(120)
+creation int(11)
+type smallint(1)

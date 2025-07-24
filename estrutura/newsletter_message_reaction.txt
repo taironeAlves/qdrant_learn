@@ -1,0 +1,6 @@
+Tabela: newsletter_message_reaction
+id_newsletter_message_reaction int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+token varchar(160) NOT NULL
+reaction text
+reaction_count int(11)

@@ -1,0 +1,1314 @@
+Tabela: api_requests
+id_api_requests int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+token varchar(100) NOT NULL
+endpoint varchar(100)
+request_time timestamp NOT NULL DEFAULT 'CURRENT_TIMESTAMP'
+
+Tabela: block_list
+id_block_list int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_user int(11) NOT NULL FOREIGN KEY → user(id_user)
+id_contact int(11) NOT NULL
+creation int(11)
+
+Tabela: bot
+id_bot int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_bot_question int(11) NOT NULL
+id_channel int(11) NOT NULL
+creation int(11) NOT NULL
+name text NOT NULL
+
+Tabela: bot_failed
+id_bot_failed int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_bot_question int(11) NOT NULL FOREIGN KEY → bot_question(id_bot_question)
+creation int(11) NOT NULL
+content text
+
+Tabela: bot_log
+id_bot_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id varchar(100) NOT NULL
+start int(11) NOT NULL
+end int(11)
+
+Tabela: bot_question
+id_bot_question int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+question text NOT NULL
+input_type text NOT NULL
+input_size int(11) NOT NULL
+param_name text NOT NULL
+callback text NOT NULL
+
+Tabela: bot_step
+id_bot_step int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_bot_question int(11) NOT NULL FOREIGN KEY → bot_question(id_bot_question)
+creation int(11) NOT NULL
+key_remote_id varchar(100) NOT NULL
+param_value text NOT NULL
+status smallint(1) NOT NULL
+
+Tabela: bot_success
+id_bot_success int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_bot_question int(11) NOT NULL FOREIGN KEY → bot_question(id_bot_question)
+creation int(11) NOT NULL
+content text
+
+Tabela: broadcast
+id_broadcast int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+token text NOT NULL
+name text NOT NULL
+count smallint(3) NOT NULL
+participants text
+
+Tabela: broadcast_approval
+id_approval int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+token_broadcast_schedule text NOT NULL
+submitted_by_user int(11) NOT NULL FOREIGN KEY → user(id_user)
+message text
+
+Tabela: broadcast_approval_contact
+id_broadcast_approval_contact int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_approval int(11) NOT NULL FOREIGN KEY → broadcast_approval(id_approval)
+token_approval text NOT NULL
+email text
+key_remote_id text
+ip varchar(100) NOT NULL
+user_agent varchar(100) NOT NULL
+status_email smallint(1) NOT NULL
+status_approval smallint(6) NOT NULL
+message text
+email_id text
+json_message text
+
+Tabela: broadcast_approval_log
+id_broadcast_approval_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+id_approval int(11) NOT NULL FOREIGN KEY → broadcast_approval(id_approval)
+key_remote_id text
+id_broadcast_approval_contact int(11) FOREIGN KEY → broadcast_approval_contact(id_broadcast_approval_contact)
+status int(11) NOT NULL
+message text
+email_id text
+ip varchar(100)
+user_agent varchar(100)
+token_schedule text
+
+Tabela: broadcast_hashtags
+id_broadcast_hashtags int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_broadcast_schedule int(11) NOT NULL FOREIGN KEY → broadcast_schedule(id_broadcast_schedule)
+creation int(11) NOT NULL
+name varchar(100) NOT NULL
+
+Tabela: broadcast_participants
+id_broadcast_participant int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+key_remote_id varchar(27) NOT NULL
+key_id varchar(100)
+type smallint(1)
+
+Tabela: broadcast_receipt
+id_broadcast_receipt int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+token varchar(32) NOT NULL
+key_id varchar(32) NOT NULL
+key_remote_id varchar(40) NOT NULL
+receipt_timestamp int(11)
+read_timestamp int(11)
+played_timestamp int(11)
+reaction_timestamp int(11)
+status smallint(2) NOT NULL
+
+Tabela: broadcast_schedule
+id_broadcast_schedule int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+title text NOT NULL
+token text NOT NULL
+schedule int(11) NOT NULL
+media_type smallint(1) NOT NULL
+data varchar(2048)
+media_url text
+media_caption varchar(1024)
+media_size int(11)
+media_duration int(11)
+media_title varchar(100)
+thumb_image longblob
+status smallint(1) NOT NULL
+start int(11)
+finished int(11)
+expire int(11) NOT NULL
+count int(11) NOT NULL
+groups text
+valid_key text
+message_send int(11) NOT NULL DEFAULT '0'
+message_receipt int(11) NOT NULL DEFAULT '0'
+message_read int(11) NOT NULL DEFAULT '0'
+message_reactions int(11) DEFAULT '0'
+message_valid_key int(11)
+submitted_approval smallint(6) NOT NULL
+status_approval smallint(1) NOT NULL
+is_wa_status smallint(1) DEFAULT '2'
+is_wa_broadcast smallint(1) DEFAULT '2'
+is_wa_community smallint(1) DEFAULT '2'
+is_fb_publication smallint(1) DEFAULT '2'
+is_waba_broadcast smallint(1) DEFAULT '2'
+is_Ig_publication smallint(1) DEFAULT '2'
+is_tv_broadcast smallint(1) DEFAULT '2'
+id_template int(11)
+json_return_error varchar(512)
+id_approval int(11) FOREIGN KEY → broadcast_approval(id_approval)
+json_parameters varchar(1024)
+json_buttons text
+is_preview_campaign int(11) DEFAULT '0'
+valid_key_copy1 varchar(20)
+is_paused smallint(6) DEFAULT '2'
+is_limited_time smallint(6) DEFAULT '2'
+limited_time_start int(11)
+limited_time_end int(11)
+broadcast_schedulecol varchar(45)
+is_wa_channel smallint(6) DEFAULT '2'
+is_sms_broadcast smallint(1) DEFAULT '2'
+is_message_poll smallint(1) DEFAULT '2'
+
+Tabela: broadcast_schedule_log
+id_broadcast_schedule_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_broadcast_schedule int(11) NOT NULL FOREIGN KEY → broadcast_schedule(id_broadcast_schedule)
+creation int(11) NOT NULL
+key_remote_id varchar(100)
+type smallint(6) NOT NULL
+log json
+
+Tabela: broadcast_schedule_participants
+id_broadcast_schedule_participants int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_broadcast_schedule int(11) NOT NULL FOREIGN KEY → broadcast_schedule(id_broadcast_schedule)
+participants longtext NOT NULL
+
+Tabela: broadcast_send
+id_broadcast_send int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_broadcast_schedule int(11)
+id_template int(11)
+creation int(11) NOT NULL
+schedule int(11) NOT NULL
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+token mediumtext NOT NULL
+key_id mediumtext
+key_remote_id mediumtext
+data mediumtext
+media_type smallint(1) NOT NULL
+media_caption mediumtext
+media_duration int(11)
+media_name mediumtext
+media_title mediumtext
+media_size int(11)
+media_url mediumtext
+longitude mediumtext
+latitude mediumtext
+thumb_image longblob
+status smallint(1) NOT NULL
+send_timestamp int(11)
+json_parameters text
+json_buttons text
+participantsList longtext
+send_count int(3) DEFAULT '0'
+receipt_count int(3) DEFAULT '0'
+read_count int(3) DEFAULT '0'
+reaction_count int(11) DEFAULT '0'
+is_group smallint(6) DEFAULT '2'
+
+Tabela: broadcast_sms_schedule
+id_broadcast_sms_schedule int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+title text NOT NULL
+token text NOT NULL
+schedule int(11) NOT NULL
+data varchar(140) NOT NULL
+groups text
+participants longtext NOT NULL
+count int(11) NOT NULL
+status smallint(1) NOT NULL
+
+Tabela: catalog
+id_catalog int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+id_catalog_category int(11) NOT NULL FOREIGN KEY → catalog_category(id_catalog_category)
+name text NOT NULL
+creation int(11) NOT NULL
+mon smallint(1) NOT NULL
+tue smallint(1) NOT NULL
+wed smallint(1) NOT NULL
+thu smallint(1) NOT NULL
+fri smallint(1) NOT NULL
+sat smallint(1) NOT NULL
+sun smallint(1) NOT NULL
+status smallint(1) NOT NULL
+
+Tabela: catalog_category
+id_catalog_category int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+
+Tabela: catalog_product
+id_catalog_product int(11) NOT NULL PRIMARY KEY
+id_product int(11) NOT NULL FOREIGN KEY → product(id_product)
+id_catalog int(11) NOT NULL FOREIGN KEY → catalog(id_catalog)
+creation int(11) NOT NULL
+
+Tabela: category
+id_category int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+name varchar(100) NOT NULL
+description text
+status smallint(1) NOT NULL DEFAULT '1'
+
+Tabela: category_user_group
+id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_category int(11) NOT NULL FOREIGN KEY → category(id_category)
+id_user_group int(11) NOT NULL
+
+Tabela: channel
+id_channel int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+name varchar(55)
+id_user_group int(11)
+id_work_time int(11) FOREIGN KEY → work_time(id_work_time)
+type smallint(1) NOT NULL
+id mediumtext NOT NULL
+pw mediumtext
+status smallint(1) NOT NULL DEFAULT '1'
+t int(11)
+quality smallint(2) DEFAULT '10'
+credit_template float DEFAULT '0'
+pricing_template float DEFAULT '0.05486'
+is_broadcast smallint(1) DEFAULT '2'
+button_text mediumtext
+button_color varchar(25)
+title mediumtext
+subtitle mediumtext
+pricing_template_br float
+position mediumtext
+credit_conversation float DEFAULT '0'
+business_initiated_price float
+user_initiated_price float
+referral_conversion_price float
+minimum_credit float DEFAULT '100'
+database_clear varchar(10)
+whatsapp_business_messaging mediumtext
+display_phone_number mediumtext
+consolidating int(11)
+consolidation_date int(11)
+payment_error text
+broadcast_send int(11)
+tv_connection_code int(6) unsigned
+integration_type smallint(6) DEFAULT '1'
+
+Tabela: channel_event
+id_channel_event int(11) NOT NULL PRIMARY KEY
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+id_bot int(11)
+creation int(11) NOT NULL
+type smallint(1) NOT NULL
+tag text
+
+Tabela: channel_location
+id_channel_location int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL DEFAULT '1' FOREIGN KEY → channel(id_channel)
+creation int(11) NOT NULL
+display_name text NOT NULL
+latitude text
+longitude text
+contact text
+status smallint(1) DEFAULT '1'
+cep varchar(10)
+is_search smallint(1) DEFAULT '2'
+
+Tabela: channel_log
+id_channel_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id varchar(100) NOT NULL
+log text NOT NULL
+
+Tabela: chat_form
+id_chat_form int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+title text NOT NULL
+color int(11) NOT NULL
+
+Tabela: chat_form_fields
+id_chat_form_fields int(11) NOT NULL PRIMARY KEY
+id_chat_form int(11) NOT NULL
+creation int(11) NOT NULL
+name text NOT NULL
+type smallint(1) NOT NULL
+
+Tabela: chat_list
+id_chat_list int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+id_contact int(11) NOT NULL
+key_remote_id varchar(100)
+last_conversation_id text
+creation int(11) NOT NULL
+is_chat smallint(1) NOT NULL DEFAULT '1'
+is_broadcast smallint(1) DEFAULT '1'
+is_group smallint(1) DEFAULT '1'
+is_private smallint(1) DEFAULT '1'
+is_wait smallint(1) DEFAULT '1'
+ignore smallint(1) DEFAULT '1'
+is_close smallint(1) DEFAULT '1'
+spam smallint(1) DEFAULT '1'
+deleted smallint(1) DEFAULT '1'
+user_notify_spam int(11)
+user_ignore text
+user_deleted int(11)
+short_timestamp int(11)
+message_no_read int(11) DEFAULT '0'
+last_message_table_id int(11)
+last_welcome_timestamp int(11)
+last_office_hours_end int(11)
+labels text
+last_attendence int(11)
+last_timestamp_client int(11)
+fixed_timestamp int(11)
+id_last_message_read int(11)
+id_last_message_send int(11)
+id_last_message_no_read int(11)
+id_message_no_read int(11)
+is_bot smallint(1) DEFAULT '2'
+hidden_msg smallint(1) DEFAULT '1'
+agent_timestamp int(11)
+
+Tabela: chat_list_label
+id_chat_list_label int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+id_chat_list int(11) NOT NULL FOREIGN KEY → chat_list(id_chat_list)
+id_label int(11) NOT NULL FOREIGN KEY → label(id_label)
+
+Tabela: chat_list_log
+id_chat_list_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_chat_list int(11) NOT NULL FOREIGN KEY → chat_list(id_chat_list)
+creation int(11) NOT NULL
+key_remote_id varchar(100) NOT NULL
+start int(11) NOT NULL
+end int(11)
+protocol varchar(10)
+id_user_group int(11)
+start_mode varchar(100)
+id_category int(11) FOREIGN KEY → category(id_category)
+
+Tabela: chatbot
+id_chatbot int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_user_group int(11) FOREIGN KEY → user_group(id_user_group)
+text text
+option text NOT NULL
+description text NOT NULL
+id_submenu int(11)
+is_menu smallint(1) NOT NULL DEFAULT '2'
+is_primary smallint(1) DEFAULT '1'
+webhook text
+media_type smallint(1) DEFAULT '1'
+media_url text
+media_caption text
+vcard text
+is_end smallint(1) DEFAULT '2'
+
+Tabela: chatbot_interaction
+id_chatbot_interaction int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+options varchar(10000)
+key_remote_id varchar(255)
+is_open smallint(6) DEFAULT '2'
+is_transfer smallint(6) DEFAULT '2'
+is_automatic_transfer smallint(6) DEFAULT '2'
+
+Tabela: city
+id_city int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_region int(11) NOT NULL FOREIGN KEY → region(id_region)
+city text NOT NULL
+
+Tabela: community
+id_community int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL
+creation int(11) NOT NULL
+name varchar(55)
+key_remote_id varchar(100) NOT NULL
+subject varchar(512)
+description varchar(1024)
+link varchar(48)
+participantsCount int(11) DEFAULT '0'
+status smallint(6) NOT NULL
+
+Tabela: community_log
+id_community_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_community int(11) NOT NULL FOREIGN KEY → community(id_community)
+creation int(11) NOT NULL
+key_remote_id varchar(100) NOT NULL
+type smallint(6) NOT NULL
+
+Tabela: community_participant
+id_community_participant int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_community int(11) NOT NULL FOREIGN KEY → community(id_community)
+creation int(11) NOT NULL
+key_remote_id varchar(100) NOT NULL
+
+Tabela: company
+id_company int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11)
+corporate_name varchar(100)
+fantasy_name varchar(100)
+cnpj varchar(18)
+vm_port varchar(5)
+
+Tabela: config
+id_config int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL
+timezone text NOT NULL
+welcome text
+attendance_enable smallint(1) NOT NULL DEFAULT '2'
+office_hours_end text
+chatbot_enable smallint(1) NOT NULL DEFAULT '2'
+transfer_message text
+automatic_transfer smallint(1) NOT NULL DEFAULT '2'
+automatic_transfer_minute smallint(2) NOT NULL DEFAULT '1'
+attendant_name_enable tinyint(1) NOT NULL DEFAULT '0'
+ai_evaluation tinyint(1) NOT NULL DEFAULT '0'
+ai_options smallint(2)
+interval_broadcast smallint(2) DEFAULT '10'
+webhook text
+attendance_message_close text
+message_close_enabled smallint(1) DEFAULT '2'
+template_welcome text
+template_attendance_message_close text
+namespace text
+template_namespace text
+enable_protocol smallint(1) DEFAULT '2'
+message_start_attendance text
+enabled_lgpd_question smallint(1) DEFAULT '2'
+template_name_lgpd text
+lgpd_question_text text
+template_lgpd_question_no text
+lgpd_not_confirm_message text
+order_user_group int(11)
+id_order_status int(11)
+welcome_message text
+address text
+email text
+social_media text
+picture text
+company_description text
+is_broadcast smallint(1) DEFAULT '2'
+automatic_message text
+opt_out_message text
+return_to_channel_message text
+evaluate_question text
+evaluate_service text
+question_evaluate_service_no text
+question_evaluate_service_yes text
+template_wa_business_welcome varchar(255) DEFAULT 'Bem vindo ao canal de novidades ?'
+template_wa_business_description varchar(255)
+template_wa_business_term_link varchar(255)
+template_wa_business_term_accept_yes_reaction text
+template_wa_business_term_accept_no_reaction text
+template_wa_business_optin_term_accept_yes varchar(100) DEFAULT 'Finalize seu cadastro para receber novidades incríveis!'
+template_wa_business_optin_description varchar(255)
+template_wa_business_last_broadcast text
+template_wa_business_optin_term_accept_yes_media_url varchar(255)
+template_wa_business_optout varchar(1000) DEFAULT 'Caso deseje sair, envie #sair.'
+template_wa_business_optout_list_reason text
+template_wa_business_optout_list_selected_title varchar(255) DEFAULT 'Que pena! nós vamos encerrar seu cadastro.'
+template_wa_business_optout_list_selected_description varchar(255)
+template_wa_business_automatic_message_title varchar(255) DEFAULT '⚠️ Esse canal é para o envio de novidades. '
+template_wa_business_automatic_message_description varchar(255)
+template_wa_business_automatic_message_phone varchar(255) DEFAULT ''
+template_wa_business_contains_broadcast varchar(200) DEFAULT 'Temos ofertas disponíveis. Por favor, confirme se gravou nosso número na sua agenda para que, em breve, você receba nossas ofertas exclusivas!'
+template_wa_business_no_contains_broadcast varchar(200) DEFAULT 'Neste momento, não temos ofertas disponíveis. Por favor, confirme se gravou nosso número na sua agenda para que, em breve, você receba nossas ofertas exclusivas!'
+opt_out_key varchar(45)
+tv_settings varchar(300)
+pin varchar(6)
+
+Tabela: contact
+id_contact int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+id_channel int(11) FOREIGN KEY → channel(id_channel)
+id_last_menu_selected int(11)
+key_remote_id varchar(100) NOT NULL
+ta_id varchar(100)
+id_contact_tag int(11)
+user_key_remote_id mediumtext
+id_user_group int(11) FOREIGN KEY → user_group(id_user_group)
+full_name varchar(100)
+deleted smallint(1) NOT NULL DEFAULT '1'
+spam smallint(1) NOT NULL DEFAULT '1'
+sex smallint(1) DEFAULT '1'
+email varchar(55)
+note varchar(1024)
+verify smallint(1) DEFAULT '1'
+exist smallint(1) DEFAULT '2'
+is_private smallint(1) DEFAULT '1'
+is_group smallint(1)
+presence varchar(12)
+timestamp int(11)
+crm_profile varchar(512)
+crm_timestamp int(11)
+is_imported smallint(1) DEFAULT '1'
+broadcast_timestamp int(11)
+broadcast_create smallint(1) DEFAULT '1'
+json_cache text
+broadcast_receipt int(11)
+sort_id int(11)
+is_wa_community smallint(1) DEFAULT '2'
+accepted_lgpd smallint(6) DEFAULT '2'
+contact_order int(11)
+
+Tabela: contact_group
+id_contact_group int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_group_contact int(11) NOT NULL
+id_contact int(11) NOT NULL
+creation int(11) NOT NULL
+
+Tabela: contact_interests
+id_contact_interest int(11) NOT NULL PRIMARY KEY
+creation int(11) NOT NULL
+id_interest int(11) NOT NULL FOREIGN KEY → interests(id_interest)
+id_contact int(11) NOT NULL
+
+Tabela: contact_note
+id_contact_note int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_contact int(11) NOT NULL
+creation smallint(1) NOT NULL
+text text NOT NULL
+
+Tabela: contact_optin
+id_contact_opt int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_contact int(11) NOT NULL FOREIGN KEY → contact(id_contact)
+
+Tabela: contact_optout
+id_contact_optout int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+creation int(11) NOT NULL
+key_remote_id varchar(200) NOT NULL
+reason varchar(1000)
+
+Tabela: contact_order
+id_contact_order int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_contact int(11) NOT NULL FOREIGN KEY → contact(id_contact)
+sort_id int(11)
+
+Tabela: contact_tag
+id_contact_tag int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11)
+id_tag int(11)
+id_contact varchar(100)
+id_label text
+
+Tabela: conversation_billable
+id_conversation_billable int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11)
+key_remote_id varchar(100)
+conversation_id varchar(100) NOT NULL
+expiration_timestamp int(11)
+origin_type text
+model text
+billable tinyint(4)
+category text
+current_price float
+
+Tabela: country
+id_country int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+country text NOT NULL
+
+Tabela: evaluate_service
+id_evaluate_service int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+user_key_remote_id text NOT NULL
+key_remote_id text NOT NULL
+status smallint(1) NOT NULL
+evaluation text
+
+Tabela: faq
+id_faq int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id text NOT NULL
+title text NOT NULL
+content text NOT NULL
+status smallint(1) NOT NULL
+
+Tabela: faq_statistic
+id_faq_statistic int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_faq int(11) NOT NULL FOREIGN KEY → faq(id_faq)
+creation int(11) NOT NULL
+key_remote_id text NOT NULL
+type smallint(1) NOT NULL
+point int(11) NOT NULL
+
+Tabela: faq_tag
+id_faq_tag int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_faq int(11) NOT NULL
+tag text NOT NULL
+
+Tabela: group_contact
+id_group_contact int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_id mediumtext
+gid mediumtext
+name varchar(55) NOT NULL
+tags mediumtext
+opt_in mediumtext
+participants longtext
+is_wa_group smallint(1) DEFAULT '2'
+url_wa_group mediumtext
+description mediumtext
+subject mediumtext
+send_message smallint(1) DEFAULT '2'
+id_channel int(11)
+profile mediumtext
+
+Tabela: group_participants
+id_group_participant int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_group int(11) NOT NULL FOREIGN KEY → groups(id_group)
+creation int(11) NOT NULL
+key_remote_id text NOT NULL
+
+Tabela: groups
+id_group int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id text NOT NULL
+participants text
+name text NOT NULL
+STATUS smallint(1) DEFAULT '1'
+
+Tabela: interests
+id_interest int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+deleted smallint(1) NOT NULL
+
+Tabela: job_delete_chat
+id_job_delete_chat int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id text NOT NULL
+owner varchar(5)
+
+Tabela: job_revoke_msg
+id_job_revoke_msg int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_id text NOT NULL
+key_remote_id text NOT NULL
+
+Tabela: json_pending
+id_json_pending int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id varchar(100)
+key_id varchar(100) NOT NULL
+json text NOT NULL
+
+Tabela: label
+id_label int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+name text NOT NULL
+color varchar(7) NOT NULL
+
+Tabela: lgpd_confirm
+id_lgpd_confirm int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id varchar(100) NOT NULL
+status smallint(1) NOT NULL
+
+Tabela: media
+id_media int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+token varchar(100)
+media_type smallint(1)
+media_size int(11)
+media_duration int(11)
+media_caption varchar(100)
+status smallint(1)
+server text
+
+Tabela: media_temp
+id_media_temp int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+id_media int(11) NOT NULL FOREIGN KEY → media(id_media)
+token varchar(100) NOT NULL
+ip text NOT NULL
+
+Tabela: message_ack
+id_message_ack int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_message int(11) NOT NULL FOREIGN KEY → messages(id_message)
+creation int(11)
+token text NOT NULL
+
+Tabela: message_key
+id_message_key int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_id varchar(100) NOT NULL
+key_remote_id varchar(100) NOT NULL
+
+Tabela: message_quoted
+id_message_quoted int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_message int(11) NOT NULL FOREIGN KEY → messages(id_message)
+creation int(11) NOT NULL
+key_id text NOT NULL
+
+Tabela: message_referral
+id_message_referral int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_message int(11) NOT NULL FOREIGN KEY → messages(id_message)
+source_url text
+source_id text
+source_type text
+headline text
+body text
+media_type text
+video_url text
+thumbnail_url text
+
+Tabela: messages
+id_message int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_chat_list int(11) NOT NULL FOREIGN KEY → chat_list(id_chat_list)
+creation int(11) NOT NULL
+key_id varchar(200) NOT NULL
+ta_key_id varchar(200)
+key_from_me smallint(1)
+key_remote_id varchar(100)
+need_push smallint(1)
+data text
+status smallint(1)
+media_type smallint(2)
+media_url varchar(320)
+media_mime_type text
+media_size int(11)
+media_name varchar(1026)
+media_caption text
+media_hash text
+media_duration int(11)
+latitude text
+longitude text
+thumb_image longblob
+send_timestamp int(11)
+receipt_server_timestamp int(11)
+read_device_timestamp int(11)
+played_device_timestamp int(11)
+quoted_row_id varchar(200)
+participant text
+file_name text
+title text
+page_count int(11) DEFAULT '0'
+forwarded tinyint(1) DEFAULT '0'
+name varchar(255)
+namespace varchar(255)
+language varchar(8)
+policy varchar(100)
+json_return text
+id_chat_bot smallint(11)
+starred smallint(1)
+components text
+deleted smallint(1) DEFAULT '1'
+media_key text
+component text
+visible smallint(1) DEFAULT '1'
+conversation_id text
+conversation_expiration_timestamp int(11)
+conversation_origin_type text
+pricing_model text
+pricing_billable tinyint(1)
+pricing_category text
+is_broadcast smallint(1) DEFAULT '0'
+
+Tabela: messages_order
+id_messages_order int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_order_status int(11) FOREIGN KEY → order_status(id_order_status)
+id_payment_method int(11) FOREIGN KEY → payment_methods(id_payment_method)
+creation int(11) NOT NULL
+token text NOT NULL
+order_id text NOT NULL
+seller_jid text NOT NULL
+key_id varchar(100) NOT NULL
+order_title text
+item_count int(11) NOT NULL
+message text
+subtotal text
+total text
+postal text
+address text
+number text
+district text
+city text
+complement text
+distance text
+distance_time text
+
+Tabela: messages_order_product
+id_messages_order_product int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+code text NOT NULL
+id_messages_order int(11) NOT NULL FOREIGN KEY → messages_order(id_messages_order)
+id text NOT NULL
+quantity text NOT NULL
+name text NOT NULL
+currency text NOT NULL
+price text NOT NULL
+
+Tabela: messages_reaction
+id_messages_reaction int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_message int(11) NOT NULL
+creation int(11) NOT NULL
+emoji varchar(16)
+status smallint(1) DEFAULT '1'
+
+Tabela: newsletter
+id_newsletter int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL
+creation int(11) NOT NULL
+key_remote_id text NOT NULL
+name text
+name_id text
+description text
+invite_code text
+subscribers_count int(11)
+status smallint(6)
+
+Tabela: newsletter_message_reaction
+id_newsletter_message_reaction int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+token varchar(160) NOT NULL
+reaction text
+reaction_count int(11)
+
+Tabela: order_status
+id_order_status int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+color text NOT NULL
+message text
+is_close smallint(1)
+
+Tabela: payment_methods
+id_payment_method int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+status smallint(1) NOT NULL
+
+Tabela: permission
+id_permission int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name varchar(100) DEFAULT 'Administrador'
+dashboard smallint(1) DEFAULT '2'
+contact smallint(1) DEFAULT '1'
+persona smallint(1) DEFAULT '1'
+label smallint(1) DEFAULT '1'
+block_list smallint(1) DEFAULT '2'
+community smallint(1) DEFAULT '1'
+user smallint(1) DEFAULT '1'
+replies smallint(1) DEFAULT '1'
+usergroup smallint(1) DEFAULT '1'
+permission smallint(1) DEFAULT '1'
+usercall smallint(1) DEFAULT '1'
+messenger smallint(1) DEFAULT '1'
+publication_whatsapp_waba smallint(1) DEFAULT '1'
+publication_whatsapp_newsletter smallint(1) DEFAULT '1'
+publication_whatsapp_community smallint(1) DEFAULT '1'
+publication_whatsapp_broadcast smallint(1) DEFAULT '1'
+publication_whatsapp_status smallint(1) DEFAULT '1'
+publication_facebook smallint(1) DEFAULT '1'
+publication_instagram smallint(1) DEFAULT '1'
+publication_tv_broadcast smallint(1) DEFAULT '1'
+report smallint(1) DEFAULT '1'
+evaluate_report smallint(1) DEFAULT '2'
+adm smallint(1) DEFAULT '1'
+config smallint(1) DEFAULT '1'
+chatbot smallint(1) DEFAULT '1'
+report_call smallint(1) DEFAULT '1'
+work_time smallint(1) DEFAULT '1'
+ip_list longtext
+shortlink smallint(1)
+calendar smallint(1)
+intranet smallint(1) DEFAULT '2'
+invoice smallint(1) DEFAULT '2'
+myinvoice smallint(1) DEFAULT '2'
+product smallint(1) DEFAULT '1'
+faq smallint(1) DEFAULT '1'
+group_contact smallint(1) DEFAULT '1'
+financial smallint(1) DEFAULT '2'
+block_access_work_time smallint(1)
+conversation_billable smallint(1) DEFAULT '1'
+broadcast_sms smallint(1) DEFAULT '2'
+company smallint(1) DEFAULT '1'
+templates smallint(1) DEFAULT '1'
+integration smallint(1) DEFAULT '1'
+report_send smallint(1) DEFAULT '1'
+ticket smallint(1) DEFAULT '1'
+kanban_attendance smallint(1) DEFAULT '1'
+kanban_communication smallint(1) DEFAULT '1'
+publication_whatsapp smallint(1) DEFAULT '1'
+
+Tabela: product
+id_product int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+code text NOT NULL
+title text NOT NULL
+short_description text NOT NULL
+media_url text NOT NULL
+thumbnail longblob NOT NULL
+status smallint(6) NOT NULL
+currency varchar(10)
+price varchar(10)
+wa_product_id text
+url text
+is_approved smallint(6) DEFAULT '2'
+is_rejected smallint(6) DEFAULT '1'
+is_visible smallint(6) DEFAULT '1'
+is_appealed smallint(6)
+
+Tabela: product_picture
+id_product_picture int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_product int(11) NOT NULL FOREIGN KEY → product(id_product)
+creation int(11) NOT NULL
+order smallint(1) NOT NULL
+media_url text NOT NULL
+media_caption text NOT NULL
+media_size int(11) NOT NULL
+media_mime_type text NOT NULL
+thumbnail longblob
+
+Tabela: product_statistic
+id_product_statistic int(11) NOT NULL PRIMARY KEY
+id_product int(11) NOT NULL FOREIGN KEY → product(id_product)
+creation int(11) NOT NULL
+key_remote_id text NOT NULL
+
+Tabela: push
+id_push int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11)
+key_id text
+key_remote_id text
+title text
+message text
+status smallint(1)
+
+Tabela: push_schedule
+id_push_schedule int(11) NOT NULL PRIMARY KEY
+id_user int(11) NOT NULL FOREIGN KEY → user(id_user)
+creation int(11) NOT NULL
+title text NOT NULL
+message text NOT NULL
+schedule int(11) NOT NULL
+status smallint(1) NOT NULL
+
+Tabela: quick_replies
+id_quick_replies int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation varchar(45) NOT NULL
+tag text NOT NULL
+key_remote_id mediumtext
+title mediumtext NOT NULL
+content text
+media_type smallint(6)
+media_url varchar(1024)
+media_size int(11)
+media_duration int(11)
+media_title varchar(100)
+
+Tabela: receipt_user
+id_broadcast_participant int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+key_id varchar(100) NOT NULL
+key_remote_id varchar(100) NOT NULL
+receipt_device_timestamp int(11)
+played_device_timestamp int(11)
+read_device_timestamp int(11)
+
+Tabela: region
+id_region int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_country int(11) NOT NULL FOREIGN KEY → country(id_country)
+region text NOT NULL
+
+Tabela: schedule
+id_schedule int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+schedule int(11) NOT NULL
+title text NOT NULL
+text text NOT NULL
+status smallint(1) NOT NULL
+
+Tabela: score
+id_score int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_id text NOT NULL
+liked int(11) DEFAULT '1'
+not_liked int(11) DEFAULT '1'
+
+Tabela: short_link
+id_short_link int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_user int(11) NOT NULL FOREIGN KEY → user(id_user)
+creation int(11) NOT NULL
+message mediumtext NOT NULL
+name text NOT NULL
+phone mediumtext NOT NULL
+link mediumtext NOT NULL
+media_url mediumtext
+title mediumtext
+description mediumtext
+status smallint(1) NOT NULL DEFAULT '1'
+
+Tabela: short_link_log
+id_short_link_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_short_link int(11) NOT NULL FOREIGN KEY → short_link(id_short_link)
+creation int(11) NOT NULL
+country text NOT NULL
+region text NOT NULL
+city text NOT NULL
+agent text NOT NULL
+browser_version text NOT NULL
+is_mobile smallint(1) NOT NULL
+device_version text NOT NULL
+ip text NOT NULL
+hostname text NOT NULL
+timezone text NOT NULL
+org text NOT NULL
+is_facebook smallint(1)
+
+Tabela: system_limit
+id_system_limit int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+tag_name text NOT NULL
+is_limited smallint(6) NOT NULL
+limited_type smallint(6) NOT NULL
+limit smallint(6) NOT NULL
+ta_module text
+
+Tabela: tamplate_params
+id_template_parameter int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+label varchar(100)
+number int(2)
+creation int(11)
+
+Tabela: template
+id_template int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name varchar(255)
+name_to_request varchar(255)
+namespace varchar(255)
+header_type smallint(1)
+header varchar(255)
+text_body text
+text_footer mediumtext
+language varchar(8) DEFAULT 'pt_BR'
+category varchar(100) DEFAULT 'ISSUE_RESOLUTION'
+rejected_reason mediumtext
+status int(11) DEFAULT '1'
+template_id mediumtext
+account_key_remote_id mediumtext
+buttons mediumtext
+template_json mediumtext
+
+Tabela: template_type
+id_template_type int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+category varchar(120)
+pt_BR varchar(120)
+pt_PT varchar(120)
+es_AR varchar(120)
+es_ES varchar(120)
+es_MX varchar(120)
+es varchar(120)
+creation int(11)
+type smallint(1)
+
+Tabela: teste
+idteste int(11) NOT NULL PRIMARY KEY
+nome varchar(45) NOT NULL
+
+Tabela: ticket
+id_ticket int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+id_contact int(11) FOREIGN KEY → contact(id_contact)
+id_ticket_type int(11) NOT NULL FOREIGN KEY → ticket_type(id_ticket_type)
+id_user int(11) NOT NULL FOREIGN KEY → user(id_user)
+id_ticket_status int(11) NOT NULL FOREIGN KEY → ticket_status(id_ticket_status)
+comment text
+timestamp_close int(11)
+id_subtype int(11)
+id_company int(11)
+
+Tabela: ticket_log
+id_ticket_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11)
+id_ticket int(11) NOT NULL FOREIGN KEY → ticket(id_ticket)
+id_user int(11) NOT NULL FOREIGN KEY → user(id_user)
+id_ticket_type int(11) NOT NULL FOREIGN KEY → ticket_type(id_ticket_type)
+id_ticket_status int(11) NOT NULL FOREIGN KEY → ticket_status(id_ticket_status)
+comment text
+
+Tabela: ticket_sla
+id_ticket_sla int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+time_sla mediumtext NOT NULL
+color mediumtext NOT NULL
+
+Tabela: ticket_status
+id_ticket_status int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+is_open smallint(1) NOT NULL
+color mediumtext
+status smallint(1)
+ticket_statuscol varchar(45) DEFAULT '1'
+
+Tabela: ticket_task_list
+id_ticket_task_list int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_ticket int(11) NOT NULL FOREIGN KEY → ticket(id_ticket)
+creation int(11) NOT NULL
+key_remote_id text NOT NULL
+timestamp_start int(11)
+timestamp_end int(11)
+timestamp_diff int(11)
+status smallint(1) NOT NULL
+
+Tabela: ticket_type
+id_ticket_type int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_user_group int(11) FOREIGN KEY → user_group(id_user_group)
+id_ticket_sla int(11) FOREIGN KEY → ticket_sla(id_ticket_sla)
+creation int(11) NOT NULL
+name mediumtext NOT NULL
+status smallint(1) NOT NULL DEFAULT '1'
+color mediumtext
+id_subtype int(11)
+is_primary int(11) DEFAULT '1'
+
+Tabela: ticket_wait_list
+id_ticket_wait_list int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_ticket int(11) NOT NULL FOREIGN KEY → ticket(id_ticket)
+creation int(11) NOT NULL
+key_remote_id text
+id_user_group int(11) FOREIGN KEY → user_group(id_user_group)
+user_key_remote_id text
+timestamp_send_user int(11)
+status smallint(1) NOT NULL DEFAULT '1'
+
+Tabela: user
+id_user int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation varchar(45) NOT NULL
+id_permission int(11) NOT NULL FOREIGN KEY → permission(id_permission)
+id_user_call int(11) FOREIGN KEY → user_calls(id_user_call)
+id_work_time int(11) FOREIGN KEY → work_time(id_work_time)
+id_user_group int(11) FOREIGN KEY → user_group(id_user_group)
+key_remote_id varchar(100)
+name mediumtext NOT NULL
+last_name mediumtext NOT NULL
+email mediumtext NOT NULL
+password mediumtext NOT NULL
+profile_picture mediumtext
+visible smallint(1) NOT NULL
+status smallint(1) NOT NULL
+2fa smallint(1) DEFAULT '0'
+phone mediumtext
+visible_widget smallint(1) DEFAULT '2'
+notification_alert_url mediumtext
+language mediumtext
+login_retry int(11) DEFAULT '0'
+attendance_available smallint(11) DEFAULT '0'
+
+Tabela: user_2fa
+id_user_2fa int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+code text
+retry int(11) DEFAULT '1'
+user_key_remote_id text
+creation datetime DEFAULT 'CURRENT_TIMESTAMP'
+expire datetime
+email_send tinyint(4) DEFAULT '0'
+wa_send tinyint(4) DEFAULT '0'
+sms_send tinyint(4) DEFAULT '0'
+is_add_2fa tinyint(4) DEFAULT '2'
+is_expired tinyint(4) DEFAULT '0'
+resend_code int(11) DEFAULT '0'
+
+Tabela: user_calls
+id_user_call int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name mediumtext NOT NULL
+limit int(11) NOT NULL
+
+Tabela: user_group
+id_user_group int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name mediumtext NOT NULL
+status smallint(1) DEFAULT '1'
+
+Tabela: user_log
+id_user_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_user int(11) NOT NULL
+creation int(11) NOT NULL
+text text NOT NULL
+system text
+agent text
+version text
+ip text
+
+Tabela: user_reset_password
+id_user_reset_password int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11)
+expire int(11)
+token text NOT NULL
+origin_key_remote_id text NOT NULL
+key_remote_id text NOT NULL
+status smallint(1) NOT NULL DEFAULT '1'
+
+Tabela: user_timestamp
+id_user_timestamp int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_user int(11) NOT NULL
+short_timestamp int(11)
+start int(11) NOT NULL
+end int(11)
+timediff int(11)
+ip varchar(15) DEFAULT ''
+
+Tabela: user_token
+id_user_token int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation varchar(45)
+id_user int(11) NOT NULL FOREIGN KEY → user(id_user)
+token text
+
+Tabela: visitor
+id_visitor int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_contact int(11) NOT NULL FOREIGN KEY → contact(id_contact)
+creation int(11) NOT NULL
+ip text NOT NULL
+hostname text NOT NULL
+city text NOT NULL
+region text NOT NULL
+country text NOT NULL
+org text NOT NULL
+timezone text NOT NULL
+page text NOT NULL
+t int(11)
+
+Tabela: wait_list
+id_wait_list int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id varchar(200) NOT NULL
+id_user_group int(11) FOREIGN KEY → user_group(id_user_group)
+user_key_remote_id text
+timestamp_send_user int(11)
+status smallint(1) NOT NULL
+push_notification smallint(1) DEFAULT '1'
+account_key_remote_id varchar(200)
+type varchar(45)
+t int(11)
+
+Tabela: webhook
+id_webhook int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+ta_key_id text NOT NULL
+channel varchar(200) NOT NULL
+webhook text NOT NULL
+json text NOT NULL
+status smallint(1) NOT NULL
+
+Tabela: work_time
+id_work_time int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+status smallint(1) NOT NULL DEFAULT '1'
+
+Tabela: work_time_week
+id_work_time_week int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_work_time int(11) NOT NULL FOREIGN KEY → work_time(id_work_time)
+week smallint(1) NOT NULL
+start time NOT NULL
+end time NOT NULL
+

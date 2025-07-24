@@ -1,0 +1,5 @@
+Tabela: lgpd_confirm
+id_lgpd_confirm int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id varchar(100) NOT NULL
+status smallint(1) NOT NULL

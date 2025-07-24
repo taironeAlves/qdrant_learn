@@ -1,0 +1,8 @@
+Tabela: chatbot_interaction
+id_chatbot_interaction int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+options varchar(10000)
+key_remote_id varchar(255)
+is_open smallint(6) DEFAULT '2'
+is_transfer smallint(6) DEFAULT '2'
+is_automatic_transfer smallint(6) DEFAULT '2'

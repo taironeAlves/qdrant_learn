@@ -1,0 +1,7 @@
+Tabela: evaluate_service
+id_evaluate_service int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+user_key_remote_id text NOT NULL
+key_remote_id text NOT NULL
+status smallint(1) NOT NULL
+evaluation text

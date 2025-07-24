@@ -1,0 +1,10 @@
+Tabela: product_picture
+id_product_picture int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_product int(11) NOT NULL FOREIGN KEY → product(id_product)
+creation int(11) NOT NULL
+order smallint(1) NOT NULL
+media_url text NOT NULL
+media_caption text NOT NULL
+media_size int(11) NOT NULL
+media_mime_type text NOT NULL
+thumbnail longblob

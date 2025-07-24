@@ -1,0 +1,10 @@
+Tabela: media
+id_media int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+token varchar(100)
+media_type smallint(1)
+media_size int(11)
+media_duration int(11)
+media_caption varchar(100)
+status smallint(1)
+server text

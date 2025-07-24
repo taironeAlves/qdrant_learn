@@ -1,0 +1,5 @@
+Tabela: user_calls
+id_user_call int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name mediumtext NOT NULL
+limit int(11) NOT NULL

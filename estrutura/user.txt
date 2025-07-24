@@ -1,0 +1,22 @@
+Tabela: user
+id_user int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation varchar(45) NOT NULL
+id_permission int(11) NOT NULL FOREIGN KEY → permission(id_permission)
+id_user_call int(11) FOREIGN KEY → user_calls(id_user_call)
+id_work_time int(11) FOREIGN KEY → work_time(id_work_time)
+id_user_group int(11) FOREIGN KEY → user_group(id_user_group)
+key_remote_id varchar(100)
+name mediumtext NOT NULL
+last_name mediumtext NOT NULL
+email mediumtext NOT NULL
+password mediumtext NOT NULL
+profile_picture mediumtext
+visible smallint(1) NOT NULL
+status smallint(1) NOT NULL
+2fa smallint(1) DEFAULT '0'
+phone mediumtext
+visible_widget smallint(1) DEFAULT '2'
+notification_alert_url mediumtext
+language mediumtext
+login_retry int(11) DEFAULT '0'
+attendance_available smallint(11) DEFAULT '0'

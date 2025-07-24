@@ -1,0 +1,7 @@
+Tabela: groups
+id_group int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id text NOT NULL
+participants text
+name text NOT NULL
+STATUS smallint(1) DEFAULT '1'

@@ -1,0 +1,5 @@
+Tabela: chat_list_label
+id_chat_list_label int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+id_chat_list int(11) NOT NULL FOREIGN KEY → chat_list(id_chat_list)
+id_label int(11) NOT NULL FOREIGN KEY → label(id_label)

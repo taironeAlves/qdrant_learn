@@ -1,0 +1,7 @@
+Tabela: company
+id_company int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11)
+corporate_name varchar(100)
+fantasy_name varchar(100)
+cnpj varchar(18)
+vm_port varchar(5)

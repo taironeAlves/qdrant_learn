@@ -1,0 +1,5 @@
+Tabela: user_group
+id_user_group int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name mediumtext NOT NULL
+status smallint(1) DEFAULT '1'

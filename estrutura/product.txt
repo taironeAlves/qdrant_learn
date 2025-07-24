@@ -1,0 +1,17 @@
+Tabela: product
+id_product int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+code text NOT NULL
+title text NOT NULL
+short_description text NOT NULL
+media_url text NOT NULL
+thumbnail longblob NOT NULL
+status smallint(6) NOT NULL
+currency varchar(10)
+price varchar(10)
+wa_product_id text
+url text
+is_approved smallint(6) DEFAULT '2'
+is_rejected smallint(6) DEFAULT '1'
+is_visible smallint(6) DEFAULT '1'
+is_appealed smallint(6)

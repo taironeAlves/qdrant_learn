@@ -1,0 +1,8 @@
+Tabela: webhook
+id_webhook int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+ta_key_id text NOT NULL
+channel varchar(200) NOT NULL
+webhook text NOT NULL
+json text NOT NULL
+status smallint(1) NOT NULL

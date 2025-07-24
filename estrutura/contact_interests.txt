@@ -1,0 +1,5 @@
+Tabela: contact_interests
+id_contact_interest int(11) NOT NULL PRIMARY KEY
+creation int(11) NOT NULL
+id_interest int(11) NOT NULL FOREIGN KEY → interests(id_interest)
+id_contact int(11) NOT NULL

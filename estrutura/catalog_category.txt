@@ -1,0 +1,4 @@
+Tabela: catalog_category
+id_catalog_category int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL

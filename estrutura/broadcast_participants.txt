@@ -1,0 +1,5 @@
+Tabela: broadcast_participants
+id_broadcast_participant int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+key_remote_id varchar(27) NOT NULL
+key_id varchar(100)
+type smallint(1)

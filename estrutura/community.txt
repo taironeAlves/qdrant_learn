@@ -1,0 +1,11 @@
+Tabela: community
+id_community int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL
+creation int(11) NOT NULL
+name varchar(55)
+key_remote_id varchar(100) NOT NULL
+subject varchar(512)
+description varchar(1024)
+link varchar(48)
+participantsCount int(11) DEFAULT '0'
+status smallint(6) NOT NULL

@@ -1,0 +1,6 @@
+Tabela: messages_reaction
+id_messages_reaction int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_message int(11) NOT NULL
+creation int(11) NOT NULL
+emoji varchar(16)
+status smallint(1) DEFAULT '1'

@@ -1,0 +1,12 @@
+Tabela: short_link
+id_short_link int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_user int(11) NOT NULL FOREIGN KEY → user(id_user)
+creation int(11) NOT NULL
+message mediumtext NOT NULL
+name text NOT NULL
+phone mediumtext NOT NULL
+link mediumtext NOT NULL
+media_url mediumtext
+title mediumtext
+description mediumtext
+status smallint(1) NOT NULL DEFAULT '1'

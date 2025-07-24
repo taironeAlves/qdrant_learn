@@ -1,0 +1,5 @@
+Tabela: message_quoted
+id_message_quoted int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_message int(11) NOT NULL FOREIGN KEY → messages(id_message)
+creation int(11) NOT NULL
+key_id text NOT NULL

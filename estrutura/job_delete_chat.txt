@@ -1,0 +1,5 @@
+Tabela: job_delete_chat
+id_job_delete_chat int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_remote_id text NOT NULL
+owner varchar(5)

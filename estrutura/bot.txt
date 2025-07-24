@@ -1,0 +1,6 @@
+Tabela: bot
+id_bot int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_bot_question int(11) NOT NULL
+id_channel int(11) NOT NULL
+creation int(11) NOT NULL
+name text NOT NULL

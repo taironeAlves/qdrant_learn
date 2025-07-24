@@ -1,0 +1,10 @@
+Tabela: messages_order_product
+id_messages_order_product int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+code text NOT NULL
+id_messages_order int(11) NOT NULL FOREIGN KEY → messages_order(id_messages_order)
+id text NOT NULL
+quantity text NOT NULL
+name text NOT NULL
+currency text NOT NULL
+price text NOT NULL

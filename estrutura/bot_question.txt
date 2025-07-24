@@ -1,0 +1,9 @@
+Tabela: bot_question
+id_bot_question int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+question text NOT NULL
+input_type text NOT NULL
+input_size int(11) NOT NULL
+param_name text NOT NULL
+callback text NOT NULL

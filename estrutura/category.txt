@@ -1,0 +1,5 @@
+Tabela: category
+id_category int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+name varchar(100) NOT NULL
+description text
+status smallint(1) NOT NULL DEFAULT '1'

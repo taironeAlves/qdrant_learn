@@ -1,0 +1,11 @@
+Tabela: ticket
+id_ticket int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+id_contact int(11) FOREIGN KEY → contact(id_contact)
+id_ticket_type int(11) NOT NULL FOREIGN KEY → ticket_type(id_ticket_type)
+id_user int(11) NOT NULL FOREIGN KEY → user(id_user)
+id_ticket_status int(11) NOT NULL FOREIGN KEY → ticket_status(id_ticket_status)
+comment text
+timestamp_close int(11)
+id_subtype int(11)
+id_company int(11)

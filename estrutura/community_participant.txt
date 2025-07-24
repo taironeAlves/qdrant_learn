@@ -1,0 +1,5 @@
+Tabela: community_participant
+id_community_participant int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_community int(11) NOT NULL FOREIGN KEY → community(id_community)
+creation int(11) NOT NULL
+key_remote_id varchar(100) NOT NULL

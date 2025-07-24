@@ -1,0 +1,8 @@
+Tabela: push_schedule
+id_push_schedule int(11) NOT NULL PRIMARY KEY
+id_user int(11) NOT NULL FOREIGN KEY → user(id_user)
+creation int(11) NOT NULL
+title text NOT NULL
+message text NOT NULL
+schedule int(11) NOT NULL
+status smallint(1) NOT NULL

@@ -1,0 +1,3 @@
+Tabela: country
+id_country int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+country text NOT NULL

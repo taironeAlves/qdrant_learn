@@ -1,0 +1,8 @@
+Tabela: push
+id_push int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11)
+key_id text
+key_remote_id text
+title text
+message text
+status smallint(1)

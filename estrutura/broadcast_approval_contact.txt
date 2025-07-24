@@ -1,0 +1,13 @@
+Tabela: broadcast_approval_contact
+id_broadcast_approval_contact int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_approval int(11) NOT NULL FOREIGN KEY → broadcast_approval(id_approval)
+token_approval text NOT NULL
+email text
+key_remote_id text
+ip varchar(100) NOT NULL
+user_agent varchar(100) NOT NULL
+status_email smallint(1) NOT NULL
+status_approval smallint(6) NOT NULL
+message text
+email_id text
+json_message text

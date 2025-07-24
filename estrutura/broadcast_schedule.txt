@@ -1,0 +1,51 @@
+Tabela: broadcast_schedule
+id_broadcast_schedule int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+title text NOT NULL
+token text NOT NULL
+schedule int(11) NOT NULL
+media_type smallint(1) NOT NULL
+data varchar(2048)
+media_url text
+media_caption varchar(1024)
+media_size int(11)
+media_duration int(11)
+media_title varchar(100)
+thumb_image longblob
+status smallint(1) NOT NULL
+start int(11)
+finished int(11)
+expire int(11) NOT NULL
+count int(11) NOT NULL
+groups text
+valid_key text
+message_send int(11) NOT NULL DEFAULT '0'
+message_receipt int(11) NOT NULL DEFAULT '0'
+message_read int(11) NOT NULL DEFAULT '0'
+message_reactions int(11) DEFAULT '0'
+message_valid_key int(11)
+submitted_approval smallint(6) NOT NULL
+status_approval smallint(1) NOT NULL
+is_wa_status smallint(1) DEFAULT '2'
+is_wa_broadcast smallint(1) DEFAULT '2'
+is_wa_community smallint(1) DEFAULT '2'
+is_fb_publication smallint(1) DEFAULT '2'
+is_waba_broadcast smallint(1) DEFAULT '2'
+is_Ig_publication smallint(1) DEFAULT '2'
+is_tv_broadcast smallint(1) DEFAULT '2'
+id_template int(11)
+json_return_error varchar(512)
+id_approval int(11) FOREIGN KEY → broadcast_approval(id_approval)
+json_parameters varchar(1024)
+json_buttons text
+is_preview_campaign int(11) DEFAULT '0'
+valid_key_copy1 varchar(20)
+is_paused smallint(6) DEFAULT '2'
+is_limited_time smallint(6) DEFAULT '2'
+limited_time_start int(11)
+limited_time_end int(11)
+broadcast_schedulecol varchar(45)
+is_wa_channel smallint(6) DEFAULT '2'
+is_sms_broadcast smallint(1) DEFAULT '2'
+is_message_poll smallint(1) DEFAULT '2'

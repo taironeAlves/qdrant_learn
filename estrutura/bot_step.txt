@@ -1,0 +1,7 @@
+Tabela: bot_step
+id_bot_step int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_bot_question int(11) NOT NULL FOREIGN KEY → bot_question(id_bot_question)
+creation int(11) NOT NULL
+key_remote_id varchar(100) NOT NULL
+param_value text NOT NULL
+status smallint(1) NOT NULL

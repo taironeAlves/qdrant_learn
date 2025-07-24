@@ -1,0 +1,7 @@
+Tabela: channel_event
+id_channel_event int(11) NOT NULL PRIMARY KEY
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+id_bot int(11)
+creation int(11) NOT NULL
+type smallint(1) NOT NULL
+tag text

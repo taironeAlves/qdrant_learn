@@ -1,0 +1,65 @@
+T.py
+Instalação e inserção de dados no Qdrant
+
+a.py
+Integração com o Qdrant junto com um agente usando langchain e openai
+
+b.py
+Tentar rodar o qdrant com conhecimento para cada agente
+
+1- teste com embedding do openai  + qdrant + langchain sem personalização de agente
+OBS: Um sucesso, consegui separar o arquivo em chunks que pegam a table completa, algumas
+tables passaram dos 1000 chunks (5) mas é um número muito pequeno pra tentar fatiar mais ainda, então pode ser 
+desconsiderado.
+
+Interação: Mostre as chaves estrangeiras da tabela channel
+As respostas foram muito boas e precisas, com um consumo de embedding = 13 e tokens = 1.480
+
+Interação: Mostre as colunas da table chat_list
+As respostas foram muito boas e precisas, com um consumo de embedding = 11 e tokens = 1.036
+
+Interação: a table contact tem alguma relação com a tabela chat_list?
+As respostas foram muito boas e precisas, com um consumo de embedding = 15 e tokens = 1.003
+
+Interação: a table contact tem alguma relação com a tabela channel?
+As respostas foram muito boas e precisas, com um consumo de embedding = 14 e tokens = 1.038
+
+c.py
+Tentar integração qdrat + openai + prompt openai sem langchain
+Resultados: Sucesso, consegui passar tanto a pergunta como o contexto.
+O consumo de tokens foi de 2.995 os embeddings permaneceram inalterados, porém apesar do c.py ter gerado mais tokens do que b.py
+ele gerou respostas mais acertivas como:
+
+Mostre as colunas da table chat_list
+Resposta: ele mostrou todas as 34 colunas da tabela chat_list
+
+já a b.py gerou respostas menos acertivas como:
+
+Mostre as colunas da table chat_list
+Resposta: ele mostrou apenas 14 colunas da tabela chat_list
+
+Acredito que o metodo vectorstore esteja limitando o contexto.
+Confirmado, o vector_store.as_retriever(search_kwargs={"k": 10}) sem o k=10 ele gera com o limit padrão de 5. O consumo de tokens foi de 2.964, semelhante ao c.py 
+Criar o banco vetorial com metadados para cada chunk, foi essencial para que o agente pudesse buscar no banco com maior precisão.
+
+Fiz uns testes extras no tmp1.py e tmp2.py apliquei filtros para buscar no banco com maior precisão e houve uma redução de tokens de 
+2.964 para 630.
+
+
+2- teste com embedding do openai  + qdrant sem langchain
+
+d.py
+O arquivo d.py consegue fazer busca com filtros no qdrant com precisão, ele busca na pergunta do user
+se tem menção a alguma table e retorna o contexto daquela table.
+O script tambem consulta o arquivo lista_de_tabelas.txt para gerar uma array com o nome de todas as tables.
+lista_de_tabelas.txt foi criado usando o nodejs pra gerar um arquivo com o nome de todas as tables do banco de dados.
+O resulta do foi positivo, ele conseguiu retornar o contexto da table mencionada.
+
+Obs: Considerei usar um model de embedding local para reduzir o consumo de tokens. No entanto, a openai cobra $0.02 por 1 milhão de tokens. Então acho que vale a pena manter o qdrant com o embedding do openai. Mas tem que observar o consumo mensal quando colocado em produção com todos os agentes e user trabalhando simultaneamente pra ver se vale ou não a pena cortar esse custo.
+
+Com respeito aos agentes(prompts) acredito que vale a pena configurá-los dentro da openai pois não tem custo adicional. A model que estou usando é a mais barata gpt-4.1-nano-2025-04-14 $0.10 input/1M e $0.40 output/1M
+
+Ainda dá pra cortar mais os custos com token, porém é necessário analisar o cenário como um todo para implementar a solução abaixo:
+Armazenar as perguntas e resposta com metadados no qdrant, assim quando algum user fizer uma pergunta muito parecida com outra pergunta que já foi feita ele vai retornar a resposta que foi salva no banco e não vai gerar um novo request para a openai, com isso ele vai gerar menos tokens e menos embeddings e ainda 'aprende' a responder. (tmp4.py -- necessita ajustes)
+
+tmp5.py está completamente estruturado e funcional com respeito a consulta de perguntas.

@@ -1,0 +1,8 @@
+Tabela: ticket_status
+id_ticket_status int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+is_open smallint(1) NOT NULL
+color mediumtext
+status smallint(1)
+ticket_statuscol varchar(45) DEFAULT '1'

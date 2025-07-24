@@ -1,0 +1,4 @@
+Tabela: city
+id_city int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_region int(11) NOT NULL FOREIGN KEY → region(id_region)
+city text NOT NULL

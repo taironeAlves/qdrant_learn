@@ -1,0 +1,6 @@
+Tabela: score
+id_score int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_id text NOT NULL
+liked int(11) DEFAULT '1'
+not_liked int(11) DEFAULT '1'

@@ -1,0 +1,5 @@
+Tabela: chat_form
+id_chat_form int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+title text NOT NULL
+color int(11) NOT NULL

@@ -1,0 +1,9 @@
+Tabela: user_log
+id_user_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_user int(11) NOT NULL
+creation int(11) NOT NULL
+text text NOT NULL
+system text
+agent text
+version text
+ip text

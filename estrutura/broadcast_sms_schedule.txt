@@ -1,0 +1,11 @@
+Tabela: broadcast_sms_schedule
+id_broadcast_sms_schedule int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+title text NOT NULL
+token text NOT NULL
+schedule int(11) NOT NULL
+data varchar(140) NOT NULL
+groups text
+participants longtext NOT NULL
+count int(11) NOT NULL
+status smallint(1) NOT NULL

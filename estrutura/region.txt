@@ -1,0 +1,4 @@
+Tabela: region
+id_region int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_country int(11) NOT NULL FOREIGN KEY → country(id_country)
+region text NOT NULL

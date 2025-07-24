@@ -1,0 +1,5 @@
+Tabela: interests
+id_interest int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+deleted smallint(1) NOT NULL

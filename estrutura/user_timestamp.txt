@@ -1,0 +1,8 @@
+Tabela: user_timestamp
+id_user_timestamp int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_user int(11) NOT NULL
+short_timestamp int(11)
+start int(11) NOT NULL
+end int(11)
+timediff int(11)
+ip varchar(15) DEFAULT ''

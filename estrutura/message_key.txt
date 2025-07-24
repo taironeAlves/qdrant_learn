@@ -1,0 +1,5 @@
+Tabela: message_key
+id_message_key int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+key_id varchar(100) NOT NULL
+key_remote_id varchar(100) NOT NULL

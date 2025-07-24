@@ -1,0 +1,5 @@
+Tabela: block_list
+id_block_list int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_user int(11) NOT NULL FOREIGN KEY → user(id_user)
+id_contact int(11) NOT NULL
+creation int(11)

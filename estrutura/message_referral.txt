@@ -1,0 +1,11 @@
+Tabela: message_referral
+id_message_referral int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_message int(11) NOT NULL FOREIGN KEY → messages(id_message)
+source_url text
+source_id text
+source_type text
+headline text
+body text
+media_type text
+video_url text
+thumbnail_url text

@@ -1,0 +1,13 @@
+Tabela: user_2fa
+id_user_2fa int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+code text
+retry int(11) DEFAULT '1'
+user_key_remote_id text
+creation datetime DEFAULT 'CURRENT_TIMESTAMP'
+expire datetime
+email_send tinyint(4) DEFAULT '0'
+wa_send tinyint(4) DEFAULT '0'
+sms_send tinyint(4) DEFAULT '0'
+is_add_2fa tinyint(4) DEFAULT '2'
+is_expired tinyint(4) DEFAULT '0'
+resend_code int(11) DEFAULT '0'

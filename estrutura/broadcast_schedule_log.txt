@@ -1,0 +1,7 @@
+Tabela: broadcast_schedule_log
+id_broadcast_schedule_log int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_broadcast_schedule int(11) NOT NULL FOREIGN KEY → broadcast_schedule(id_broadcast_schedule)
+creation int(11) NOT NULL
+key_remote_id varchar(100)
+type smallint(6) NOT NULL
+log json

@@ -1,0 +1,6 @@
+Tabela: contact_optout
+id_contact_optout int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+id_channel int(11) NOT NULL FOREIGN KEY → channel(id_channel)
+creation int(11) NOT NULL
+key_remote_id varchar(200) NOT NULL
+reason varchar(1000)

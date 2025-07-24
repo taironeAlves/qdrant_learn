@@ -1,0 +1,9 @@
+Tabela: system_limit
+id_system_limit int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+tag_name text NOT NULL
+is_limited smallint(6) NOT NULL
+limited_type smallint(6) NOT NULL
+limit smallint(6) NOT NULL
+ta_module text

@@ -1,0 +1,5 @@
+Tabela: payment_methods
+id_payment_method int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+creation int(11) NOT NULL
+name text NOT NULL
+status smallint(1) NOT NULL
